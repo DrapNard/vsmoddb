@@ -27,6 +27,7 @@ List all mods
 
 Get Parameters:
 **tagids[]**: Search by tag id
+
 **text**: Search by mod text and title
 
 ### /api/mod/[modid]
