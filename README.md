@@ -18,14 +18,17 @@ http://mods.vintagestory.at/files/
 
 ### /api/tags
 List all mod tags
+
 Example: http://mods.vintagestory.at/api/tags
 
 ### /api/gameversions
 List all game version tags
+
 Example: http://mods.vintagestory.at/api/gameversions
 
 ### /api/mods
 List all mods
+
 Example: http://mods.vintagestory.at/api/mods
 
 Get Parameters:
@@ -33,10 +36,12 @@ Get Parameters:
 
 **text**: Search by mod text and title
 
+
 Search Example: http://mods.vintagestory.at/api/mods?text=jack&tagids[]=7&tagids[]=8
 
 
 ### /api/mod/[modid]
 List all info for given mod
+
 Example: http://mods.vintagestory.at/api/mod/6
 
