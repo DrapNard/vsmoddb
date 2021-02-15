@@ -8,6 +8,7 @@ Repository for https://mods.vintagestory.at
 ## Format
 
 Request: Normal GET requests
+
 Response: Json. Every response contains a *statuscode* property which uses [HTTP Error Codes](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes) to denote success/failure of a request.
 
 ## URLS
