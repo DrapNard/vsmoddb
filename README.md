@@ -46,7 +46,8 @@ Search Example: http://mods.vintagestory.at/api/mods?text=jack&tagids[]=7&tagids
 
 
 ### /api/mod/[modid]
-List all info for given mod
+List all info for given mod. Modid can be either the numbered id as retrieved by the mod list interface or the modid string from the modinfo.json
 
 Example: http://mods.vintagestory.at/api/mod/6
+String example: http://mods.vintagestory.at/api/mod/carrycapacity
 
