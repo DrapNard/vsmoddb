@@ -38,9 +38,9 @@ List all mods
 Example: http://mods.vintagestory.at/api/mods
 
 Get Parameters:<br>
-**tagids[]**: Search by tag id<br>
+**tagids[]**: Filter by tag id<br>
+**gameversion**: Filter by game version id<b>
 **text**: Search by mod text and title<br>
-
 
 Search Example: http://mods.vintagestory.at/api/mods?text=jack&tagids[]=7&tagids[]=8
 
