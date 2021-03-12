@@ -39,7 +39,7 @@ Example: http://mods.vintagestory.at/api/mods
 
 Get Parameters:<br>
 **tagids[]**: Filter by tag id<br>
-**gameversion**: Filter by game version id<b>
+**gameversion**: Filter by game version id<br>
 **text**: Search by mod text and title<br>
 
 Search Example: http://mods.vintagestory.at/api/mods?text=jack&tagids[]=7&tagids[]=8
