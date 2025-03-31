@@ -1,0 +1,22 @@
+// Variables
+$primary-color:  #6d8b74;
+$secondary-color: #50e3c2;
+$dark-color: #333;
+$light-color: #f4f4f4;
+$danger-color: #e74c3c;
+$success-color: #2ecc71;
+$max-width: 1200px;
+
+// Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin container {
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+}

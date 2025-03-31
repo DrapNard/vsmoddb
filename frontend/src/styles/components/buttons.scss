@@ -1,0 +1,184 @@
+@use "sass:color";
+@use "../variables" as *;
+
+// Button component styles
+
+.btn {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  border-radius: 4px;
+  font-weight: 500;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  font-size: 0.9rem;
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  // Primary button
+  &-primary {
+    background-color: $primary-color;
+    color: white;
+    
+    &:hover {
+      background-color: color.adjust($primary-color, $lightness: -10%);
+    }
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($primary-color, 0.3);
+      outline: none;
+    }
+  }
+  
+  // Secondary button
+  &-secondary {
+    background-color: $secondary-color;
+    color: white;
+    
+    &:hover {
+      // Replace line 45
+      background-color: color.adjust($secondary-color, $lightness: -10%);
+    }
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($secondary-color, 0.3);
+      outline: none;
+    }
+  }
+  
+  // Danger button
+  &-danger {
+    background-color: $danger-color;
+    color: white;
+    
+    &:hover {
+      // Replace line 63
+      background-color: color.adjust($danger-color, $lightness: -10%);
+    }
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($danger-color, 0.3);
+      outline: none;
+    }
+  }
+  
+  // Success button
+  &-success {
+    background-color: $success-color;
+    color: white;
+    
+    &:hover {
+      // Replace darken with color.adjust
+      background-color: color.adjust($success-color, $lightness: -10%);
+    }
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba($success-color, 0.3);
+      outline: none;
+    }
+  }
+  
+  // Outline button
+  &-outline {
+    background-color: transparent;
+    border: 1px solid #ddd;
+    color: $light-color;
+    
+    &:hover {
+      background-color: #f5f5f5;
+    }
+    
+    &:focus {
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.1);
+      outline: none;
+    }
+    
+    &-primary {
+      border-color: $primary-color;
+      color: $primary-color;
+      
+      &:hover {
+        background-color: rgba($primary-color, 0.1);
+      }
+      
+      &:focus {
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.2);
+      }
+    }
+  }
+  
+  // Link button
+  &-link {
+    background-color: transparent;
+    color: $primary-color;
+    padding: 0.5rem;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  
+  // Small button
+  &-sm {
+    padding: 0.25rem 0.75rem;
+    font-size: 0.8rem;
+  }
+  
+  // Large button
+  &-lg {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+  }
+  
+  // Full width button
+  &-block {
+    display: block;
+    width: 100%;
+  }
+  
+  // Button with icon
+  &-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    
+    i, svg {
+      margin-right: 0.5rem;
+    }
+    
+    &-only {
+      padding: 0.5rem;
+      
+      i, svg {
+        margin-right: 0;
+      }
+    }
+  }
+  
+  // Button group
+  &-group {
+    display: inline-flex;
+    
+    .btn {
+      border-radius: 0;
+      
+      &:first-child {
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+      
+      &:last-child {
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+      
+      &:not(:last-child) {
+        border-right: 1px solid rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+}

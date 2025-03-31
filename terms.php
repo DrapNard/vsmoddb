@@ -1,4 +1,0 @@
-<?php
-
-$view->display("terms");
-

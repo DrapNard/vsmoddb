@@ -1,0 +1,107 @@
+@use "sass:color";
+@use "../variables" as *;
+
+// Header component styles
+
+.header {
+  background-color: rgba($dark-color, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: white;
+  padding: 1rem 0;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  
+  &__container {
+    @include container;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    justify-content: center;
+
+    img {
+      height: 2rem;
+      width: auto;
+      margin-right: 10px;
+    }
+    
+    a {
+      color: white;
+      
+      &:hover {
+        color: $secondary-color;
+      }
+    }
+  }
+
+  &__nav {
+    display: flex;
+    align-items: center;
+    
+    ul {
+      display: flex;
+      list-style: none;
+      
+      li {
+        margin-left: 1.5rem;
+        
+        a {
+          color: white;
+          font-weight: 500;
+          transition: color 0.3s ease;
+          
+          &:hover {
+            color: $secondary-color;
+          }
+          
+          &.active {
+            color: $secondary-color;
+          }
+        }
+      }
+    }
+  }
+
+  &__auth {
+    display: flex;
+    align-items: center;
+    margin-left: 2rem;
+    
+    .btn {
+      margin-left: 1rem;
+    }
+  }
+
+  // Responsive styles
+  @media (max-width: 768px) {
+    &__container {
+      flex-direction: column;
+    }
+    
+    &__nav {
+      margin-top: 1rem;
+      width: 100%;
+      
+      ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        
+        li {
+          margin: 0.5rem;
+        }
+      }
+    }
+    
+    &__auth {
+      margin: 1rem 0 0 0;
+    }
+  }
+}

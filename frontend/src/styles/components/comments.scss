@@ -1,0 +1,115 @@
+@use "sass:color";
+@use "../variables" as *;
+
+
+// Comments section styles
+.comments-section {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e0e0e0;
+
+  h3 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    .comments-sort {
+      font-size: 0.85rem;
+      font-weight: normal;
+      margin-left: 1rem;
+
+      a {
+        color: #91A357;
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+.comment {
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  &__title {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #555;
+
+    .comment__anchor {
+      text-decoration: none;
+      margin-right: 0.5rem;
+    }
+
+    .comment__banned {
+      color: #d32f2f;
+    }
+
+    .comment__actions {
+      margin-left: 0.5rem;
+      font-weight: normal;
+
+      a {
+        color: #91A357;
+        text-decoration: none;
+        margin: 0 0.25rem;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+
+  &__body {
+    line-height: 1.5;
+    white-space: pre-wrap;
+  }
+
+  &__edit {
+    margin-top: 0.5rem;
+  }
+
+  &__textarea {
+    width: 100%;
+    min-height: 100px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: vertical;
+  }
+
+  &__edit-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  &-editor {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #f0f4e8;
+    border-radius: 4px;
+  }
+}
+
+.comments__loading,
+.comments__error {
+  padding: 1rem;
+  text-align: center;
+}
+
+.comments__error {
+  color: #d32f2f;
+  background-color: #ffebee;
+  border-radius: 4px;
+}

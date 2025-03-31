@@ -1,16 +1,18 @@
-FROM php:7.4-apache
+FROM php:8.0-apache
 
-ARG UID
-ARG GID
+ARG UID=1000
+ARG GID=1000
 
-ENV UID=${UID}
-ENV GID=${GID}
-
-# Install php-mysql driver & gd to handle screenshots
-RUN apt update \
-    && apt install -y zlib1g-dev libpng-dev \
-    && rm -rf /var/lib/apt/lists/*
-RUN docker-php-ext-install mysqli pdo pdo_mysql gd
+# Install system dependencies
+RUN apt-get update && apt-get install -y \
+    git \
+    curl \
+    libpng-dev \
+    libonig-dev \
+    libxml2-dev \
+    zip \
+    unzip \
+    openssl
 
 # enable apache rewrite module
 RUN a2enmod rewrite

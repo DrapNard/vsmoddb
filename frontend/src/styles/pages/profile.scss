@@ -1,0 +1,232 @@
+@use "sass:color";
+@use "../variables" as *;
+
+
+// Profile page styles
+
+.profile {
+  padding: 2rem 0;
+  
+  &__container {
+    @include container;
+  }
+  
+  &__header {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    margin-bottom: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+    
+    &-avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      overflow: hidden;
+      margin-right: 2rem;
+      flex-shrink: 0;
+      
+      @media (max-width: 768px) {
+        margin: 0 auto 1.5rem;
+      }
+      
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    
+    &-info {
+      flex: 1;
+      
+      @media (max-width: 768px) {
+        text-align: center;
+      }
+      
+      h1 {
+        font-size: 1.75rem;
+        margin-bottom: 0.5rem;
+      }
+      
+      .username {
+        color: #666;
+        margin-bottom: 1rem;
+        font-size: 1.1rem;
+      }
+      
+      .bio {
+        color: #444;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+      
+      .stats {
+        display: flex;
+        gap: 2rem;
+        
+        @media (max-width: 768px) {
+          justify-content: center;
+        }
+        
+        &-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          
+          .value {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: $primary-color;
+          }
+          
+          .label {
+            font-size: 0.9rem;
+            color: #666;
+          }
+        }
+      }
+    }
+  }
+  
+  &__tabs {
+    margin-bottom: 2rem;
+    
+    &-nav {
+      display: flex;
+      border-bottom: 1px solid #eee;
+      margin-bottom: 2rem;
+      
+      &-item {
+        padding: 1rem 1.5rem;
+        font-weight: 500;
+        color: #666;
+        cursor: pointer;
+        border-bottom: 2px solid transparent;
+        
+        &:hover {
+          color: $primary-color;
+        }
+        
+        &.active {
+          color: $primary-color;
+          border-bottom-color: $primary-color;
+        }
+      }
+    }
+  }
+  
+  &__mods {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    
+    &-item {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+      }
+      
+      &-image {
+        height: 180px;
+        overflow: hidden;
+        
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      
+      &-content {
+        padding: 1.5rem;
+        
+        h3 {
+          font-size: 1.25rem;
+          margin-bottom: 0.5rem;
+        }
+        
+        .description {
+          color: #666;
+          font-size: 0.9rem;
+          margin-bottom: 1rem;
+          line-height: 1.5;
+        }
+        
+        .meta {
+          display: flex;
+          justify-content: space-between;
+          color: #666;
+          font-size: 0.9rem;
+          
+          .downloads {
+            display: flex;
+            align-items: center;
+            
+            i, svg {
+              margin-right: 0.25rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  &__activity {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+    
+    &-item {
+      padding: 1.5rem 0;
+      border-bottom: 1px solid #eee;
+      
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+      
+      &-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+        
+        .activity-type {
+          font-weight: 500;
+        }
+        
+        .date {
+          color: #666;
+          font-size: 0.9rem;
+        }
+      }
+      
+      &-content {
+        color: #444;
+        line-height: 1.6;
+        
+        a {
+          color: $primary-color;
+          font-weight: 500;
+          
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

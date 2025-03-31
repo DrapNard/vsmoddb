@@ -1,0 +1,79 @@
+@use "sass:color";
+@use "../variables" as *;
+
+
+// File uploader styles
+.file-uploader {
+  margin: 1rem 0;
+  
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  &__input-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  &__input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    background-color: #fff;
+  }
+  
+  &__button {
+    padding: 0.5rem 1rem;
+    background-color: #91A357;
+    color: white;
+    border: none;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    
+    &:hover {
+      background-color: #7a8a49;
+    }
+    
+    &:disabled {
+      background-color: #cccccc;
+      cursor: not-allowed;
+    }
+  }
+  
+  &__progress {
+    height: 20px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  &__progress-bar {
+    height: 100%;
+    background-color: #91A357;
+    transition: width 0.3s ease;
+  }
+  
+  &__progress-text {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    line-height: 20px;
+    color: #333;
+    font-size: 0.8rem;
+    mix-blend-mode: difference;
+  }
+  
+  &__error {
+    color: #d32f2f;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+}

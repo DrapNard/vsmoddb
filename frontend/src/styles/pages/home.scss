@@ -1,0 +1,225 @@
+@use "sass:color";
+@use "../variables" as *;
+
+
+// Home page styles
+
+.home {
+  &__hero {
+    background-color: $primary-color;
+    // Replace darken with color.adjust
+    background-image: linear-gradient(135deg, $primary-color, color.adjust($primary-color, $lightness: -15%));
+    color: white;
+    padding: 4rem 0;
+    margin-bottom: 3rem;
+    
+    &-container {
+      @include container;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+      
+      @media (max-width: 992px) {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+    
+    &-content {
+      flex: 1;
+      
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      
+      p {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        opacity: 0.9;
+        line-height: 1.6;
+      }
+      
+      .btn-group {
+        display: flex;
+        gap: 1rem;
+        
+        @media (max-width: 992px) {
+          justify-content: center;
+        }
+        
+        @media (max-width: 576px) {
+          flex-direction: column;
+          width: 100%;
+          max-width: 300px;
+          margin: 0 auto;
+          
+          .btn {
+            width: 100%;
+          }
+        }
+      }
+    }
+    
+    &-image {
+      flex: 1;
+      max-width: 500px;
+      
+      img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      }
+    }
+  }
+  
+  &__features {
+    padding: 3rem 0;
+    
+    &-container {
+      @include container;
+    }
+    
+    &-header {
+      text-align: center;
+      margin-bottom: 3rem;
+      
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+      }
+      
+      p {
+        color: #666;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+    }
+    
+    &-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    
+    &-item {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+      
+      &-icon {
+        width: 60px;
+        height: 60px;
+        background-color: rgba($primary-color, 0.1);
+        color: $primary-color;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        font-size: 1.5rem;
+      }
+      
+      h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+      }
+      
+      p {
+        color: #666;
+        margin-bottom: 1.5rem;
+      }
+      
+      a {
+        display: inline-flex;
+        align-items: center;
+        font-weight: 500;
+        
+        i, svg {
+          margin-left: 0.5rem;
+          transition: transform 0.3s ease;
+        }
+        
+        &:hover {
+          i, svg {
+            transform: translateX(3px);
+          }
+        }
+      }
+    }
+  }
+  
+  &__trending {
+    padding: 3rem 0;
+    background-color: #f9f9f9;
+    
+    &-container {
+      @include container;
+    }
+    
+    &-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+      
+      h2 {
+        font-size: 1.75rem;
+      }
+      
+      a {
+        display: flex;
+        align-items: center;
+        
+        i, svg {
+          margin-left: 0.5rem;
+        }
+      }
+    }
+    
+    &-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+  }
+  
+  &__cta {
+    padding: 5rem 0;
+    background-color: $dark-color;
+    color: white;
+    text-align: center;
+    
+    &-container {
+      @include container;
+      max-width: 800px;
+    }
+    
+    h2 {
+      font-size: 2.25rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+    
+    .btn {
+      padding: 0.75rem 2rem;
+      font-size: 1.1rem;
+    }
+  }
+}

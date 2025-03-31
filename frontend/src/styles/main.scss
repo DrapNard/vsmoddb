@@ -1,0 +1,223 @@
+@use "sass:color";
+@use './variables' as *;
+@use './components/buttons' as *;
+@use './components/forms' as *;
+@use './components/header' as *;
+@use './components/footer' as *;
+@use './components/comments' as *;
+@use './components/file-uploader' as *;
+@use './components/tag-selector' as *;
+@use './components/notifications' as *;
+@use 'pages/home' as *;
+@use 'pages/login' as *;
+@use 'pages/register' as *;
+@use 'pages/profile' as *;
+@use 'pages/mod-list' as *;
+@use 'pages/mod-detail' as *;
+@use 'pages/editor' as *;
+
+// Base styles
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --dark-color: #{$dark-color};
+  --light-color: #{$light-color};
+  --danger-color: #{$danger-color};
+  --success-color: #{$success-color};
+  --card-bg: rgba(255, 255, 255, 0.7);
+  --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --text-color: #{$dark-color};
+  --border-color: rgba(255, 255, 255, 0.18);
+  --glass-bg: rgba(255, 255, 255, 0.25);
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  background-color: $light-color;
+  color: var(--text-color);
+  background-image: url('../assets/images/background.jpg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+  position: relative;
+  transition: all 0.3s ease;
+  
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background-color: rgba(255, 255, 255, 0.5);
+    z-index: -1;
+  }
+  
+  &.dark-theme {
+    --primary-color: #6d8b74;
+    --secondary-color: #a7d129;
+    --dark-color: #f4f4f4;
+    --light-color: #1a1a1a;
+    --card-bg: rgba(30, 30, 30, 0.7);
+    --card-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --text-color: #f4f4f4;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --glass-bg: rgba(30, 30, 30, 0.25);
+    
+    &::before {
+      background-color: rgba(0, 0, 0, 0.6);
+    }
+  }
+}
+
+// Glass card effect for common components
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+  
+  &:hover {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transform: translateY(-5px);
+  }
+}
+
+// Apply glass effect to common components
+.mod-detail__header,
+.mod-detail__gallery,
+.mod-detail__description,
+.mod-detail__releases,
+.mod-detail__sidebar-widget,
+.profile__header,
+.profile__stats,
+.profile__mods-item,
+.profile__activity,
+.mod-list__card,
+.home__features-item,
+.comments-section .comment {
+  @extend .glass-card;
+  color: var(--text-color);
+}
+
+// Theme toggle button
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--glass-bg);
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: var(--card-shadow);
+  
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  
+  &:hover {
+    color: color.adjust($primary-color, $lightness: -10%);
+  }
+}
+
+// Layout
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  @include container;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+// Apply consistent styling to all page components
+.register-form-wrapper,
+.login-form-wrapper,
+.mod-editor,
+.release-editor,
+.profile__header,
+.profile__stats,
+.profile__mods-item,
+.profile__activity,
+.mod-list__filters,
+.mod-list__card,
+.comment,
+.comments-editor {
+  @extend .glass-card;
+  color: var(--text-color);
+  background: var(--card-bg);
+}
+
+// Update text colors to follow theme
+h1, h2, h3, h4, h5, h6, p, span, div, label {
+  color: var(--text-color);
+}
+
+// Update form controls to follow theme
+.form-control, 
+input, 
+textarea, 
+select {
+  background-color: var(--glass-bg);
+  color: var(--text-color);
+  border-color: var(--border-color);
+  
+  &:focus {
+    border-color: var(--primary-color);
+    background-color: var(--card-bg);
+  }
+  
+  &::placeholder {
+    color: var(--text-color);
+    opacity: 0.6;
+  }
+}
+
+// Update buttons to follow theme
+.btn {
+  &-primary {
+    background-color: var(--primary-color);
+    color: white;
+    
+    &:hover {
+      background-color: color.adjust($primary-color, $lightness: -10%);
+    }
+  }
+  
+  &-secondary {
+    background-color: var(--glass-bg);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    
+    &:hover {
+      background-color: var(--card-bg);
+    }
+  }
+}
